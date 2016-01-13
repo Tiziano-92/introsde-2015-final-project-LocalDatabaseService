@@ -49,12 +49,6 @@ public class Goal implements Serializable {
 	@Column(name = "value")
 	private String value;
 	
-	@Column(name="startDate")
-	private String startDate;
-	
-	@Column(name="endDate")
-	private String endDate;
-	
 	@OneToOne
 	@JoinColumn(name = "idMeasureDef", referencedColumnName = "idMeasureDef", insertable = true, updatable = true)
 	private MeasureDefinition measureDefinition;
@@ -87,24 +81,6 @@ public class Goal implements Serializable {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	@XmlElement(name="startDate")
-	public String getStartDate(){
-        return startDate;
-    }
-	
-	public void setStartDate(String startDate){
-        this.startDate = startDate;
-    }
-	
-	@XmlElement(name="endDate")
-	public String getEndDate(){
-        return endDate;
-    }
-	
-	public void setEndDate(String endDate){
-        this.endDate = endDate;
-    }
 
 	@XmlElement(name="measureType")
 	public MeasureDefinition getMeasureDefinition() {
@@ -252,8 +228,6 @@ public class Goal implements Serializable {
     	singleNewGoal.setMeasureDefinition(measureDef);
     	singleNewGoal.setPerson(p);
     	singleNewGoal.setValue(goalNew.getValue());
-    	singleNewGoal.setEndDate(goalNew.getEndDate());
-    	singleNewGoal.setStartDate(goalNew.getStartDate());
     			
     	Goal newGoal = Goal.saveGoal(singleNewGoal);
 
@@ -288,8 +262,6 @@ public class Goal implements Serializable {
     		if(measureDefinition == idMeasureValue){
     			
     			singleGoal.setValue(goalUpdate.getValue());
-    			singleGoal.setEndDate(goalUpdate.getEndDate());
-    			singleGoal.setStartDate(goalUpdate.getStartDate());
     			
     			Goal newGoal = Goal.updateGoal(singleGoal); 			
 
