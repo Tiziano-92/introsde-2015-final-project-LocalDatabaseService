@@ -37,10 +37,10 @@ public class PeopleImpl implements People {
         return p;
     }
     
-    //Method #10 => updatePersonMeasure(Long id, Measure m)
+    //Method #9 => savePersonMeasure(Long id, Measure m)
     @Override
-    public HealthMeasureHistory updatePersonMeasure(int idPerson, HealthMeasureHistory hmh) {
-    	return HealthMeasureHistory.updateHealthMeasureHistory(idPerson, hmh);
+    public LifeStatus savePersonMeasure(int idPerson, LifeStatus ls) throws ParseException {
+    	return LifeStatus.savePersonMeasure(idPerson, ls);
     }
     
     //Method #11 => readPersonGoals(int idPerson)

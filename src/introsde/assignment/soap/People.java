@@ -37,17 +37,16 @@ public interface People {
     @WebResult(name="person") 
     public Person readPerson(@WebParam(name="personId") int id);
 
-    
     /**
-     * update the measure identified with {m.mid}, related to the Person identified by {id}
+     * Update the information about a specified life status
      * @param person
      * @return
+     * @throws ParseException 
      */
-    @WebMethod(operationName="updatePersonMeasure")
-    @WebResult(name="updatedValueMeasurement") 
-    public HealthMeasureHistory updatePersonMeasure(@WebParam(name="personId") int idPerson, @WebParam(name="measure") HealthMeasureHistory hmh);
+    @WebMethod(operationName="savePersonMeasure")
+    @WebResult(name="newValueMeasurement") 
+    public LifeStatus savePersonMeasure(@WebParam(name="personId") int idPerson, @WebParam(name="lifeStatus") LifeStatus ls) throws ParseException;
 
-    
     /**
 	 * return the goals of a specific person identified by Id
 	 * @param idPerson
